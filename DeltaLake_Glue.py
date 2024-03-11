@@ -40,7 +40,7 @@ num_partitions = 1  # Adjust based on your dataset size and desired file size
 df = df.repartition(num_partitions)
 
 # Specify the S3 path to your Delta Lake table
-delta_table_path = "s3://valentinp-oracle-glue-folder/data_delta/"
+delta_table_path = "s3://oracle-glue-folder/data_delta/"
 
 # Check if the Delta table exists and perform upserts or create a new Delta table
 if DeltaTable.isDeltaTable(spark, delta_table_path):
