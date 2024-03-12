@@ -66,6 +66,17 @@ def process_table(glueContext, spark, table_config):
         df.write.format("delta").partitionBy("year", "month").option("path", delta_table_path).save()
 
 # Download the configuration from S3 for Tables Config
+[
+    {
+        "table_name": "xxxx,
+        "composite_key_cols": ["xxxxx","yyyyy"],
+        "connection_name": "OrcJdbcConnection",
+        "delta_table_path": "s3://oracle-db-delta-lake/raw_data/rashutp/xxxx/",
+        "updated_at_col": "xxxxxx",
+        "created_at_col": "xxxxxxxx",
+        "load_from_date": "2020-01-01"
+    }
+]
 bucket_name = args['S3_BUCKET']
 s3_key = args['S3_KEY']
 tables_config = download_s3_json(bucket_name, s3_key)
